@@ -1,0 +1,563 @@
+/* Шпаргалка по псевдоклассами
+
+:hover  при наведении что то будет происходить 
+:active срабатывает при нажатии
+:visited применяется в основном к ссылкам для установления стилей при нажатии
+:focus срабатывает когда курсор внутри какого то обьекта например цвет внутри будет красным 
+
+
+Шпаргалка по псевдоэлементам
+
+::after {content: ''} для добавления контента или стилизации после содержимого элемента, к которому он применен
+::before {content: ''}для добавления контента или стилизации до содержимого элемента, к которому он применен
+::first-letter можем обращаться к первому символу любого обьекта
+::first-line можем обращаться к первой стрроке любого обьекта
+
+///
+
+background-attachement: fixed; плавный переход для картинки
+
+
+Позиционирование объектов
+
+floaft:left обтекает обьект нужно указывать сразу у нескольких обьектов
+ border-bottom: 2px solid silver нижнее подчеркивание
+ line-height расстояние между блоками если line-height указат по размеру одинаково как и height то текст расположиться ровно по середине 
+ margin-bottom нижний отступ
+ position: relative мы можем позиционировать обьект к примеру на 10 px вверх top:-10px
+ position:fixed фиксирует обьект 
+
+ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*- Общие стили  */
+body {
+   font-family: 'Roboto', sans-serif;
+   background-color: #1C1C1C;
+   color: #fff;
+}
+
+a {
+   color: #fff;
+   text-decoration: none;
+}
+
+ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+p {
+   margin: 0;
+}
+
+p+p {
+   margin-top: 15px;
+}
+
+/* img{
+   max-width: 100%;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: 500;
+   margin: 0;
+}
+
+.container {
+   box-sizing: border-box;
+   max-width: 1170px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+
+.btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 165px;
+   height: 50px;
+   font-weight: 500;
+   font-size: 16px;
+   text-transform: uppercase;
+   background: #F6762C;
+   border-radius: 5px;
+   transition: opacity 0.3s;
+   /*плавность при нажатии */
+}
+
+.btn:hover {
+   opacity: 0.7;
+}
+
+.btn--small {
+   width: 140px;
+   height: 40px;
+   font-size: 12px;
+
+}
+
+
+
+/*- Шапка  */
+.header {
+   padding: 25px 0;
+}
+
+.header .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+
+}
+
+.header-logo {}
+
+.header-nav {}
+
+.header-list {
+   display: flex;
+   gap: 30px;
+}
+
+.header-nav a {
+   font-size: 14px;
+   opacity: 0.7;
+   transition: opacity 0.3s;
+}
+
+.header-nav a.active {
+   font-size: 14px;
+   opacity: 1;
+}
+
+.header-nav a:hover {
+
+   opacity: 0.9;
+}
+
+
+
+
+/*-Приветственная секция */
+
+.main {}
+
+.welcome {
+   box-sizing: border-box;
+   /* под высоту окна */
+   min-height: 100vh;
+   margin-top: -150px;
+   padding: 240px 0;
+   background-image: url(../img/header/header-bg.png);
+   background-repeat: no-repeat;
+   /* убирает повторяющийеся картинки*/
+   background-size: cover;
+   /* растягиваем картинку на всю ширину*/
+   background-position: center;
+
+
+}
+
+.welcome-text {
+   width: 550px;
+}
+
+.welcome-subtitle {
+   margin-bottom: 7px;
+   font-size: 14px;
+   letter-spacing: 0.1em;
+}
+
+.welcome-title {
+   font-size: 58px;
+
+}
+
+.welcome-desk {
+   margin: 40px 0;
+   /* 0 это отступ слева и  справа */
+   font-size: 18px;
+   opacity: 0.7;
+}
+
+
+
+
+/* Cписок еды */
+
+.food-list {
+   padding: 100px 0;
+}
+
+.food-list .container {
+   display: flex;
+   padding: 10px;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   /* нужно для того чтобы когда переносилась картинка она сьезжала на другую строку под другую картинку*/
+   gap: 10px;
+}
+
+.food-list-card {
+   width: 260px;
+   background: #312F30;
+   border-radius: 10px;
+
+}
+
+.food-list-img {
+   width: 100%;
+   height: 175px;
+   object-fit: cover;
+   /* для пропорциональности картинки */
+}
+
+.food-list-text {}
+
+.food-list-title {
+   margin-bottom: 13px;
+   font-size: 20px;
+   text-align: center;
+
+}
+
+.food-list-desc {
+   font-size: 16px;
+   text-align: center;
+   opacity: 0.7;
+}
+
+
+
+
+
+
+/* Order  */
+
+
+.order {
+   background: #312F30;
+   padding: 60 0;
+}
+
+.order .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-right: 90px;
+}
+
+.order-img {
+   max-width: 470px;
+
+}
+
+.order-text {
+   max-width: 360px;
+
+}
+
+.order-title {
+   font-size: 44px;
+   margin-bottom: 25px;
+}
+
+.order-desc {
+   margin-bottom: 15px;
+   font-size: 16px;
+   opacity: 0.7;
+
+}
+
+.order-price {
+   font-weight: 500;
+   font-size: 20px;
+   letter-spacing: 0.1em;
+   color: #F6762C;
+
+}
+
+.order-price--old {
+   font-size: 16px;
+   text-decoration-line: line-through;
+   opacity: 0.5;
+
+}
+
+.order-price+.order-price {
+   margin-left: 3px;
+}
+
+.order .btn {
+   margin-top: 10px;
+   ;
+}
+
+
+
+
+
+/* Product */
+
+.product {
+   padding: 150px 0;
+}
+
+.product .container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+   justify-content: center;
+}
+
+.product-card {
+   box-sizing: border-box;
+   /*изменения алгоритма расчёта ширины и высоты элемента */
+   width: 550px;
+   min-height: 300px;
+   padding: 60px 30px 60px 290px;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.product-card:nth-child(even) {
+   padding-left: 30px;
+   padding-right: 290px;
+}
+
+.product-title {
+   font-size: 30px;
+   margin-bottom: 20px;
+
+}
+
+.product-desc {
+   opacity: 0.7;
+   margin-bottom: 10px;
+
+}
+
+.product-price {
+   font-weight: 500;
+   letter-spacing: 0.1em;
+   color: #F6762C;
+}
+
+.product-price+.product-price {
+   margin-left: 5px;
+}
+
+.product-price--old {
+   text-decoration-line: line-through;
+   opacity: 0.5;
+
+
+}
+
+.product .btn {
+   margin-top: 10px;
+}
+
+.card-queen {
+   background-image: url(../img/main/food_section/cofee.png);
+
+
+}
+
+.card-hut {
+   background-image: url(../img/main/food_section/pizza.png);
+
+
+}
+
+.card-king {
+   background-image: url(../img/main/food_section/burger_king.png);
+
+
+}
+
+
+.card-papa {
+   background-image: url(../img/main/food_section/shava.png);
+
+
+}
+
+
+/* Feedback */
+
+.feedback {
+   padding: 200px;
+}
+
+.feedback .container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   max-width: 880px;
+}
+
+.feedback-img {}
+
+.feedback-text {
+   margin: 0;
+   text-align: center;
+   max-width: 370px;
+   /* display: flex;
+   flex-direction: column; */
+
+}
+
+.feedback-text::before {
+   content: url(../img/footer/icons/quote.svg);
+}
+
+.feedback-desc {
+   opacity: 0.7;
+   margin: 30px 0;
+
+}
+
+.feedback-autor {
+   font-style: normal;
+   font-weight: 500;
+   font-size: 24px;
+
+
+}
+
+.feedback-subautor {
+   font-weight: 500;
+   font-size: 12px;
+   opacity: 0.7;
+   display: block;
+   /*тк блочный то занимает новую строчку*/
+}
+
+
+
+
+/* Download  */
+
+.download {
+   padding: 60px;
+   background: #312F30;
+}
+
+.download .container {
+   display: flex;
+   align-items: center;
+   /* чтоб элементы центрировались по поперечной оси  */
+   justify-content: space-around;
+   /* задает одинаковый отсутп по бокам */
+}
+
+.download-title {
+   font-size: 40px;
+   font-weight: 500;
+
+}
+
+
+
+
+/* Footer */
+
+.footer {
+   padding: 120px 0;
+}
+
+.footer a {
+   font-size: 12px;
+   color: rgba(255, 255, 255, 0.8);
+   transition: color 0.3s;
+   /* для плавного перехода*/
+}
+
+.footer a:hover {
+
+   color: rgba(255, 255, 255, 0.9);
+}
+
+.footer .container {
+   display: grid;
+   grid-template-columns: 1fr 3fr 1fr;
+
+}
+
+.footer-contacts {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
+.footer-logo {
+   display: inline-block;
+   width: 70px;
+   margin-bottom: 20px;
+
+}
+
+.footer-link+.footer-link {
+   margin-top: 10px;
+   /* с + выбираем каждую но не первую */
+}
+
+.footer-link {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+
+.footer-link::before {
+   width: 12px;
+   height: 12px;
+}
+
+.footer-link-mail::before {
+   content: url("../img/footer/social/mail.svg ");
+}
+
+.footer-link-web::before {
+   content: url("../img/footer/social/global.svg ");
+}
+
+.footer-nav {}
+
+.footer-list {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+
+}
+
+.footer-list-title {}
+
+.footer .footer-title {
+   display: inline-block;
+   font-weight: 500;
+   font-size: 16px;
+   color: #fff;
+
+
+}
+
+.footer-inner-list {}
+
+.footer-list-item+.footer-list-item {
+   margin-top: 15px;
+}
+
+.footer-socials {}
+
+.footer-social-icons {}
+
+.footer-social-link+.footer-social-link {
+   margin-left: 8px;
+}
